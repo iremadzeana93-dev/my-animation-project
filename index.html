@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <title>Gourmet Lounge • რესტორნის მენიუ</title>
+    <!-- აუცილებლად მიაბით CSS ფაილი -->
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="fire-sparks">
+        <div class="spark s1"></div>
+        <div class="spark s2"></div>
+        <div class="spark s3"></div>
+        <div class="spark s4"></div>
+        <div class="spark s5"></div>
+        <div class="spark s6"></div>
+        <div class="spark s7"></div>
+        <div class="spark s8"></div>
+    </div>
+
+    <header class="navbar">
+        <div class="logo">🍷 GOURMET LOUNGE</div>
+        <div class="table-tag">მაგიდა №12 • ცოცხალი შეკვეთა</div>
+    </header>
+
+    <div class="main-layout">
+        <section class="menu-section">
+            <h2 class="section-title">ჩვენი მენიუ</h2>
+            <div class="menu-grid">
+                
+                <!-- ბურგერი -->
+                <div class="food-card">
+                    <div class="food-emoji">🍔</div>
+                    <div class="food-info">
+                        <h3>პრემიუმ ბურგერი</h3>
+                        <p>ანგუსის ხორცი, ჩედარი, კარამელიზირებული ხახვი</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="price">22.00 ₾</span>
+                        <button class="add-btn" onclick="addToOrder('პრემიუმ ბურგერი', 22.00)">+ დამატება</button>
+                    </div>
+                </div>
+
+                <!-- პიცა -->
+                <div class="food-card">
+                    <div class="food-emoji">🍕</div>
+                    <div class="food-info">
+                        <h3>პიცა პეპერონი</h3>
+                        <p>მოცარელა, პიკანტური სალიამი, ორეგანო</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="price">26.50 ₾</span>
+                        <button class="add-btn" onclick="addToOrder('პიცა პეპერონი', 26.50)">+ დამატება</button>
+                    </div>
+                </div>
+
+                <!-- პასტა -->
+                <div class="food-card">
+                    <div class="food-emoji">🍝</div>
+                    <div class="food-info">
+                        <h3>პასტა კარბონარა</h3>
+                        <p>გუანჩალე, პარმეზანი, ახალი კვერცხის გული</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="price">24.00 ₾</span>
+                        <button class="add-btn" onclick="addToOrder('პასტა კარბონარა', 24.00)">+ დამატება</button>
+                    </div>
+                </div>
+
+                <!-- ცეზარი -->
+                <div class="food-card">
+                    <div class="food-emoji">🥗</div>
+                    <div class="food-info">
+                        <h3>ცეზარი კრევეტებით</h3>
+                        <p>აისბერგი, პარმეზანი, საფირმო დრესინგი</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="price">19.00 ₾</span>
+                        <button class="add-btn" onclick="addToOrder('ცეზარი კრევეტებით', 19.00)">+ დამატება</button>
+                    </div>
+                </div>
+
+                <!-- მოხიტო -->
+                <div class="food-card">
+                    <div class="food-emoji">🍹</div>
+                    <div class="food-info">
+                        <h3>ციტრუსის მოხიტო</h3>
+                        <p>ლაიმი, პიტნა, ყინული, გაზირებული წყალი</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="price">11.00 ₾</span>
+                        <button class="add-btn" onclick="addToOrder('ციტრუსის მოხიტო', 11.00)">+ დამატება</button>
+                    </div>
+                </div>
+
+                <!-- ტირამისუ -->
+                <div class="food-card">
+                    <div class="food-emoji">🍰</div>
+                    <div class="food-info">
+                        <h3>ტირამისუ</h3>
+                        <p>მასკარპონე, ესპრესო, სავოიარდი</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="price">14.00 ₾</span>
+                        <button class="add-btn" onclick="addToOrder('ტირამისუ', 14.00)">+ დამატება</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <aside class="order-section">
+            <div class="order-card">
+                <div class="order-header">
+                    <h3>თქვენი შეკვეთა</h3>
+                    <button class="clear-all-btn" onclick="clearAllOrders()">გაუქმება</button>
+                </div>
+                <div class="order-items-list" id="orderList">
+                    <p class="empty-msg">შეკვეთა ცარიელია</p>
+                </div>
+                <div class="billing-details">
+                    <div class="bill-row">
+                        <span>შუალედური ჯამი:</span>
+                        <span id="subtotalVal">0.00 ₾</span>
+                    </div>
+                    <div class="bill-row fee">
+                        <span>მომსახურება (10%):</span>
+                        <span id="serviceFeeVal">0.00 ₾</span>
+                    </div>
+                    <div class="bill-row fee">
+                        <span>საგადასახადო (დღგ 18%):</span>
+                        <span id="taxVal">0.00 ₾</span>
+                    </div>
+                    <hr class="divider">
+                    <div class="bill-row total">
+                        <span>სულ გადასახდელი:</span>
+                        <span id="grandTotalVal">0.00 ₾</span>
+                    </div>
+                </div>
+                <button class="confirm-order-btn" onclick="checkoutOrder()">შეკვეთის გაფორმება ➔</button>
+            </div>
+        </aside>
+    </div>
+</body>
+</html>

@@ -1,0 +1,318 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+  background-color: #0d0a0b;
+  color: #f7f7f7;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.fire-sparks {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.spark {
+  position: absolute;
+  bottom: -30px;
+  border-radius: 50%;
+  background: #ff9900;
+  box-shadow: 0 0 12px #ff6600, 0 0 25px #ff3300;
+  animation: riseUp linear infinite;
+}
+
+@keyframes riseUp {
+  0% { transform: translateY(0) scale(1) translateX(0); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 0.8; }
+  100% { transform: translateY(-110vh) scale(0.3) translateX(40px); opacity: 0; }
+}
+
+.s1 { left: 8%; width: 8px; height: 8px; animation-duration: 4s; animation-delay: 0s; }
+.s2 { left: 22%; width: 14px; height: 14px; animation-duration: 6s; animation-delay: 1.5s; background: #ffcc00; }
+.s3 { left: 38%; width: 9px; height: 9px; animation-duration: 5s; animation-delay: 0.5s; }
+.s4 { left: 52%; width: 15px; height: 15px; animation-duration: 7s; animation-delay: 2s; background: #ff4400; }
+.s5 { left: 68%; width: 7px; height: 7px; animation-duration: 4.5s; animation-delay: 1s; }
+.s6 { left: 82%; width: 12px; height: 12px; animation-duration: 5.5s; animation-delay: 3s; background: #ffbb00; }
+.s7 { left: 93%; width: 8px; height: 8px; animation-duration: 6.5s; animation-delay: 0.8s; }
+.s8 { left: 15%; width: 11px; height: 11px; animation-duration: 7.5s; animation-delay: 2.2s; }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: rgba(20, 16, 17, 0.7);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #f39c12;
+  text-shadow: 0 0 15px rgba(243, 156, 18, 0.4);
+}
+
+.table-tag {
+  background: rgba(243, 156, 18, 0.15);
+  color: #f39c12;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid rgba(243, 156, 18, 0.3);
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 30px;
+  max-width: 1300px;
+  margin: 30px auto;
+  padding: 0 30px;
+}
+
+.section-title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.food-card {
+  background: rgba(28, 24, 25, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+
+.food-card:hover {
+  transform: translateY(-5px);
+  border-color: #f39c12;
+  box-shadow: 0 10px 25px rgba(243, 156, 18, 0.15);
+}
+
+.food-emoji {
+  font-size: 45px;
+  margin-bottom: 12px;
+}
+
+.food-info h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.food-info p {
+  font-size: 12px;
+  color: #a09a9a;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  min-height: 34px;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.price {
+  font-size: 19px;
+  font-weight: 700;
+  color: #f39c12;
+}
+
+.add-btn {
+  background: linear-gradient(135deg, #e67e22, #d35400);
+  color: white;
+  border: none;
+  padding: 9px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.add-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(230, 126, 34, 0.5);
+} /* <--- აქ აკლდა მიხურული ფრჩხილი */
+
+.order-card {
+  background: rgba(22, 19, 20, 0.85);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 25px;
+  position: sticky;
+  top: 30px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.clear-all-btn {
+  background: transparent;
+  color: #e74c3c;
+  border: 1px solid rgba(231, 76, 60, 0.4);
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.clear-all-btn:hover {
+  background: #e74c3c;
+  color: white;
+}
+
+.order-items-list {
+  min-height: 160px;
+  max-height: 280px;
+  overflow-y: auto;
+  margin: 15px 0;
+  padding-right: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.empty-msg {
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+  margin-top: 60px;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 10px 14px;
+  border-radius: 10px;
+}
+
+.item-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-name {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.item-calc {
+  font-size: 12px;
+  color: #888;
+}
+
+.item-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.qty-btn {
+  background: #332d2f;
+  border: none;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.qty-btn:hover { 
+  background: #554a4d; 
+}
+
+.remove-btn {
+  background: transparent;
+  border: none;
+  color: #e74c3c;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.billing-details {
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bill-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #bbb;
+}
+
+.bill-row.fee {
+  font-size: 13px;
+  color: #888;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 6px 0;
+}
+
+.bill-row.total {
+  font-size: 19px;
+  font-weight: 800;
+  color: #f39c12;
+}
+
+.confirm-order-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  background: linear-gradient(135deg, #27ae60, #2ecc71);
+  border: none;
+  color: white;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.confirm-order-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
